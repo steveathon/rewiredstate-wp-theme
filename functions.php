@@ -90,14 +90,14 @@ function rw2_options() {
     
   }
   
-  add_theme_page('REWIRED Theme Setting', 'REWIRED Theme Setting', 10, 'rw2-settings', 'rw2_admin');
+  add_theme_page('Rewired State Options', 'Rewired State Theme Options', 10, 'rw2-settings', 'rw2_admin');
 }
 
 function rw2_admin() {
     global $options;
 ?>
 <div class="wrap">
-  <h2 class="alignleft">Theme Setting</h2>
+  <h2 class="alignleft">Rewired State Theme Options</h2>
   <br clear="all" />
   
   <p>These are the paragraphs of text that appear on the homepage and footer.</p>
@@ -387,15 +387,6 @@ function rs_trim($string, $length, $append = '...')
     
     return $sub . (($total < strlen($string)) ? $append : '');
 }                  
-
-/**
- * Custom Login CSS
- **/
-function rs_custom_login() {
-    echo '<link href="'. get_bloginfo('template_url') .'/login.css" rel="stylesheet" type="text/css" />';   
-}                                                                                                        
-add_action('login_head','rs_custom_login');  
-add_action('admin_head','rs_custom_login');
 
 /**
  * Remove UL from menu

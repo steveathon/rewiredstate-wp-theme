@@ -1,9 +1,10 @@
 /*
 Theme Name: Rewired State
 Theme URI: http://rewiredstate.org/
-Description: The new Rewired State website template.
+Description: WordPress Theme for the Rewired State website.
 Author: the Rewired State team
-Version: 3.0
+Author URI: http://rewiredstate.org/
+Version: 3.5
 */         
 
 /** MASTER STYLESHEET **/
@@ -14,4 +15,4 @@ Version: 3.0
 
 @import url('stylesheets/forms.css');
 
-@import url("stylesheets/mobile.css") only screen and (max-device-width:480px);
+/* @import url("stylesheets/mobile.css") only screen and (max-device-width:480px); */

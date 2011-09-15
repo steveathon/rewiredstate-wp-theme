@@ -122,7 +122,8 @@ body { background: #111111; font-family: 'Helvetica Neue', Helvetica, Arial, san
 	padding: 15px 0px 20px;
 }                    
 
-.content {width:70%; margin:0 auto;}
+.content { width:70%; margin:0 auto; }
+.content.full { width: 100%; }
 
 /** Content Styles **/
               
