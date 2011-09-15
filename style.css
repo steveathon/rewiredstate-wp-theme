@@ -1,0 +1,17 @@
+/*
+Theme Name: Rewired State
+Theme URI: http://rewiredstate.org/
+Description: The new Rewired State website template.
+Author: the Rewired State team
+Version: 3.0
+*/         
+
+/** MASTER STYLESHEET **/
+
+@import url('stylesheets/reset.css');
+
+@import url('stylesheets/main.css');
+
+@import url('stylesheets/forms.css');
+
+@import url("stylesheets/mobile.css") only screen and (max-device-width:480px);

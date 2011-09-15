@@ -1,0 +1,20 @@
+body {font-family:georgia, times, serif;}
+
+h1, h2, h3, h4, h5, h1 a, h2 a, h3 a, h4 a, h5 a { color:#b63322; font-family:"gill sans", helvetica, helvetica, sans-serif; font-weight: normal; }
+h1, h2, h3, h4, h5 {margin:0; padding:0 0 0.3em 0;}
+h1 {font-size:2.4em; border-bottom:solid 1px #ccc;}
+h2 {font-size:2em;}
+h3 {font-size:1.7em;}
+h4 {font-size:1.2em;}
+h5 {font-size:1em;}
+
+a {color: #26a;text-decoration: none;}
+a:hover {background:#26a; color:#fff;}
+
+table {border-width:0 1px 1px 0;border-style:solid;border-color:#ccc;font-size:0.9em;}
+table tr th {border-width:1px 0 0 1px;border-style:solid;border-color:#ccc;
+	padding:5px 10px;background:#f4f4f4;color:#666;font-weight:bold;
+    text-transform:uppercase;text-align:center;}                                        
+
+blockquote {border-top:1px dashed #ccc;border-bottom:1px dashed #ccc;font-size:1.2em;padding:5px 20px;margin:10px;background:#f8f8f8;}
+blockquote blockquote {font-size:1em;} 

@@ -1,0 +1,29 @@
+.login h1 a {
+	background-image: url('images/logo_login.png');
+}                                                                           
+
+#backtoblog, #wphead {                  
+	background: -moz-linear-gradient(bottom,#dc4f3d, #b63322);
+	background: -webkit-gradient(linear, 0% 100%, 0% 0%, from(#b63322), to(#dc4f3d));   
+	border-bottom-color: #912b1e;       
+}                               
+                                        
+#wphead a { color: #fff !important; }     
+#user_info { color: #fff; }   
+#favorite-actions a { color: #000 !important; }
+#backtoblog a { color: #fff !important; }
+
+input.button-primary, button.button-primary, a.button-primary {
+	background: #b63322 url('images/button_grad.png');   
+	border-color: #912b1e;
+}     
+
+input.button-primary:hover, button.button-primary:hover, a.button-primary:hover {
+	background: #dc4f3d url('images/button_grad_active.png');
+	border-color: #782319;
+	color: #FADDE0;
+}
+
+.login #nav a { color: #b63322 !important; }
+
+#wphead { }

@@ -1,0 +1,17 @@
+.rs_form .error { background: #EECACF; font-size: 12px; margin-bottom: 10px; padding: 10px; }
+.success_box { background: #D5EED9; font-size: 12px; margin-bottom: 10px; padding: 10px; }                               
+
+.rs_form {  font-size: 14px; width: 560px;  }
+.rs_form .form-field, .dummy-form-field { background: #eee; border-bottom: 1px solid #fff; padding: 10px; }
+.rs_form .form-field.alt, .dummy-form-field.alt { background: #ddd; }                                   
+
+.rs_form .form-field .wrap { width: 520px; }
+.rs_form .form-field .end { clear: both; }
+                                                 
+.rs_form .form-field label { float: left; margin-top: 3px; width: 120px; }
+.rs_form .form-field input, .rs_form .form-field textarea, .rs_form .form-field select { float: right; max-height: 400px; max-width: 350px; width: 350px; } 
+.rs_form .form-field span { clear: right; color: #777; display: block; float: right; font-size: 12px; margin-top: 5px; text-align: left; width: 350px; }
+                                     
+.rs_form .recaptcha { text-align: center; margin: auto; }
+.rs_form .recaptcha span { display: block; margin-bottom: 10px; }                                       
+#recaptcha_area { margin: auto; }
