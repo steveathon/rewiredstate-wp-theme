@@ -35,6 +35,8 @@ add_action('init','rs_register_events');
 * Custom Event Columns
 **/
 
+/*
+
 function rs_events_column_structure($columns){
 		$columns = array(
 			"cb" => '<input type="checkbox" />',
@@ -103,6 +105,9 @@ function sort_events_by_meta_value($query) {
                                                                                               
 add_action('restrict_manage_posts','restrict_manage_events_sort_by_date');     
 add_filter('parse_query', 'sort_events_by_meta_value' );
+
+
+*/
 
 function rs_register_projects() {
 
