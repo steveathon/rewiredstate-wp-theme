@@ -1,4 +1,12 @@
+<?php
+//
+// form-project.php:
+//     Rewired State Projects wotsit
+//
+?>
+
 <?php get_header(); ?>
+
 
 <?php      
 
@@ -53,13 +61,21 @@ $resp = null;
 		
 		<div class="form-field">
 			<div class="wrap">
+				<label for="rs_builders">Project Builders:</label><input type="text" id="rs_builders" value="<?php echo htmlspecialchars($builders); ?>" name="rs_builders" size="60" />
+                                <span>Who was involved in building this project? Names/Twitter handles please</span>
+			</div>
+			<div class="end"></div>
+		</div>
+
+		<div class="form-field alt">
+			<div class="wrap">
 				<label for="rs_description">Description:</label><textarea id="rs_description" name="rs_description" rows="12"><?php echo htmlspecialchars($description); ?></textarea>
 				<span>An overview of your project. You can use <a href="http://daringfireball.net/projects/markdown/syntax" title="Markdown Syntax">Markdown</a> here.</span>
 			</div>
 			<div class="end"></div>		
 		</div>
 		
-		<div class="form-field alt">
+		<div class="form-field">
 			<div class="wrap">
 				<label for="rs_url">URL:</label><input type="text" id="rs_url" name="rs_url" value="<?php echo htmlspecialchars($url); ?>" size="60" />
 				<span>The web address of your project.</span>
@@ -67,7 +83,7 @@ $resp = null;
 			<div class="end"></div>		
 		</div>
 		
-		<div class="form-field">
+		<div class="form-field alt">
 			<div class="wrap">
 				<label for="rs_ideas">Ideas for taking it forward:</label><textarea id="rs_ideas" name="rs_ideas" rows="12"><?php echo htmlspecialchars($ideas); ?></textarea>
 				<span>You can use <a href="http://daringfireball.net/projects/markdown/syntax" title="Markdown Syntax">Markdown</a> here too.</span>
@@ -75,7 +91,7 @@ $resp = null;
 			<div class="end"></div>		
 		</div>
 		
-		<div class="form-field alt">
+		<div class="form-field">
 			<div class="wrap">
 				<label for="rs_costs">Estimated costs:</label><textarea id="rs_costs" name="rs_costs" rows="12"><?php echo htmlspecialchars($costs); ?></textarea>
 				<span>Any estimated costs for taking your project forward. You can use <a href="http://daringfireball.net/projects/markdown/syntax" title="Markdown Syntax">Markdown</a> here.</span>
@@ -83,7 +99,7 @@ $resp = null;
 			<div class="end"></div>		
 		</div>
 		
-		<div class="form-field">
+		<div class="form-field alt">
 			<div class="wrap">
 				<label for="rs_data">About the data:</label><textarea id="rs_data" name="rs_data" rows="12"><?php echo htmlspecialchars($data); ?></textarea>
 				<span>What data did you use? Was it useful? Could it be improved?<br />Again, you can use <a href="http://daringfireball.net/projects/markdown/syntax" title="Markdown Syntax">Markdown</a> here.</span>
@@ -91,7 +107,7 @@ $resp = null;
 			<div class="end"></div>		
 		</div> 
 		
-		<div class="form-field alt">
+		<div class="form-field">
 			<div class="wrap">
 				<label for="rs_gh_user">Github username:</label><input type="text" id="rs_gh_user" name="rs_gh_user" value="<?php echo htmlspecialchars($gh_user); ?>" size="60" />
 				<span>If you've made a repository for the project on <a href="http://github.com/" title="GitHub">GitHub</a>, fill in your username here and your repository name below.</span>
@@ -99,14 +115,14 @@ $resp = null;
 			<div class="end"></div>		
 		</div>     
 		
-		<div class="form-field">
+		<div class="form-field alt">
 			<div class="wrap">
 				<label for="rs_gh_repo">Github repository:</label><input type="text" id="rs_gh_repo" name="rs_gh_repo" value="<?php echo htmlspecialchars($gh_repo); ?>" size="60" />
 			</div>
 			<div class="end"></div>		
 		</div>
 		
-		<div class="form-field alt">
+		<div class="form-field">
 			<div class="wrap">
 				<label for="rs_svn">Subversion URL:</label><input type="text" id="rs_svn" name="rs_svn" value="<?php echo htmlspecialchars($svn); ?>" size="60" /> 
 				<span>If Subversion's more your thing, then enter the URL to your repository here.</span>
@@ -114,7 +130,7 @@ $resp = null;
 			<div class="end"></div>		
 		</div> 
 		
-		<div class="form-field">
+		<div class="form-field alt">
 			<div class="wrap">
 				<label for="rs_project_url">Project code URL:</label><input type="text" id="rs_project_url" name="rs_project_url" value="<?php echo htmlspecialchars($project_url); ?>" size="60" />
 				<span>If there's any other code repository or tracker you'd like to link to, enter it here.</span>
@@ -122,7 +138,7 @@ $resp = null;
 			<div class="end"></div>		
 		</div>
 		
-		<div class="form-field alt">
+		<div class="form-field">
 			<div class="wrap">
 				<label for="rs_twitter">Twitter username:</label><input type="text" id="rs_twitter" name="rs_twitter" value="<?php echo htmlspecialchars($twitter); ?>" size="60" />
 				<span>You can add multiple Twitter accounts, separated with commas.</span> 

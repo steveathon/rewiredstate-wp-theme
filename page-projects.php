@@ -1,6 +1,9 @@
 <?php
 /*
 Template Name: Projects List
+
+page-projects.php
+
 */    
 session_start();
        
@@ -45,6 +48,7 @@ if (!empty($_GET['action'])) {
         
 		$event = $_POST['rs_event'];
 		$title = $_POST['rs_title'];
+                $builders = $_POST['rs_builders'];
 		$description = $_POST['rs_description'];
 		$url = $_POST['rs_url'];
 		$ideas = $_POST['rs_ideas'];
@@ -56,6 +60,8 @@ if (!empty($_GET['action'])) {
 		$project_url = $_POST['rs_project_url'];
 		$twitter = $_POST['rs_twitter'];
 		$secret = $_POST['rs_secret'];
+                $won = $_POST['rs_winner'];
+                $spesh = $_POST['rs_spesh'];
 
 		$errors = array();
         
@@ -76,6 +82,10 @@ if (!empty($_GET['action'])) {
 			$errors[] = 'Please enter a title for your project.';
 		}                                                        
 
+		if (empty($builders)) {
+			$errors[] = 'Please enter who was involved in this project.';
+		}                                                        
+
 		if (count($errors) < 1) {
 			// ok, insert the project 
 
@@ -84,6 +94,7 @@ if (!empty($_GET['action'])) {
 				'post_content' => $description,
 				'post_type' => 'projects',
 				'post_status' => 'publish'
+                                //post_category => ('hacks', '$HASHTAG', '$YEAR')
 			);
 			
 			if ($action == 'new') {
@@ -94,16 +105,23 @@ if (!empty($_GET['action'])) {
 				wp_update_post($new_project);
 			}
 
-			update_post_meta($project_id, 'event', $event);                        
+			update_post_meta($project_id, 'event', $event);                     
+			update_post_meta($project_id, 'builders', $builders);                     
 			update_post_meta($project_id, 'url', $url);
-		    update_post_meta($project_id, 'ideas', $ideas);
-		    update_post_meta($project_id, 'costs', $costs);
-		    update_post_meta($project_id, 'data', $data); 
+                        update_post_meta($project_id, 'ideas', $ideas);
+                        update_post_meta($project_id, 'costs', $costs);
+                        update_post_meta($project_id, 'data', $data); 
 			update_post_meta($project_id, 'twitter', $twitter); 
 			update_post_meta($project_id, 'gh_user', $gh_user);    
 			update_post_meta($project_id, 'gh_repo', $gh_repo);
 			update_post_meta($project_id, 'svn', $svn); 
 			update_post_meta($project_id, 'project_url', $project_url);
+
+                        // Staffers have WP logins so add some extra bits for them:
+                        if (is_user_logged_in()) {
+                            update_post_meta($project_id, 'won', $won);
+                            update_post_meta($project_id, 'spesh', $spesh);
+                        }
 			                                                        
 			if ($action == 'new') {
 				update_post_meta($project_id, 'secret', $secret);     
@@ -132,8 +150,9 @@ if (!empty($_GET['action'])) {
 		
 		if (empty($_POST['rs_save'])) {		                 
 			$title = get_the_title($project_id);
+                        $builders = get_post_meta($project_id, 'builders', true);
 			$description = $project->post->post_content;
-			$event = get_post_meta($project_id, 'event', true);        
+			$event = get_post_meta($project_id, 'event', true);  
 			$url = get_post_meta($project_id, 'url', true);
 			$ideas = get_post_meta($project_id, 'ideas', true);
 			$costs = get_post_meta($project_id, 'costs', true);
@@ -176,7 +195,7 @@ global $post;
 
 $events_query = new WP_Query('post_type=events&meta_key=timestamp&showposts=-1&orderby=meta_value&order=desc');
 
-if ($events_query->have_posts()) : foreach ($events_query->posts as $event) : ?>                                                                           
+if ($events_query->have_posts()) : foreach ($events_query->posts as $event) : ?> 
     
 	<?php
 	
@@ -197,7 +216,9 @@ if ($events_query->have_posts()) : foreach ($events_query->posts as $event) : ?>
 				</div> 
 				<div class='span-6 last'> 
 					<h4><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h4> 
+                                        <!-- Built by: echo rs_builders() IF NOT EMPTY... -->
 					<p><?php echo rs_trim(get_the_excerpt(), 300); ?></p> 
+                                        <!-- insert WINNER / SPECIAL MENTION here if applicable -->
 				</div>   
 				<div class="end"></div>
 			</div> 
