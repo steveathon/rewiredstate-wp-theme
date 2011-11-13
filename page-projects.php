@@ -60,7 +60,7 @@ if (!empty($_GET['action'])) {
 		$project_url = $_POST['rs_project_url'];
 		$twitter = $_POST['rs_twitter'];
 		$secret = $_POST['rs_secret'];
-                $won = $_POST['rs_winner'];
+                $winner = $_POST['rs_winner'];
                 $spesh = $_POST['rs_spesh'];
 
 		$errors = array();
@@ -119,7 +119,7 @@ if (!empty($_GET['action'])) {
 
                         // Staffers have WP logins so add some extra bits for them:
                         if (is_user_logged_in()) {
-                            update_post_meta($project_id, 'won', $won);
+                            update_post_meta($project_id, 'winner', $winner);
                             update_post_meta($project_id, 'spesh', $spesh);
                         }
 			                                                        

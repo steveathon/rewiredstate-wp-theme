@@ -26,7 +26,7 @@ $gh_repo = rs_custom('gh_repo');
 $svn = rs_custom('svn');
 $twitter = rs_custom('twitter');     
 $code_url = rs_custom('project_url');
-$won = rs_custom('winner');
+$winner = rs_custom('winner');
 $spesh = rs_custom('spesh');
 // category here, too.
  

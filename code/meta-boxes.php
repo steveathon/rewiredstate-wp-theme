@@ -69,6 +69,14 @@ function rs_metabox_events() {
 		</div>
 		
 		<div class="form-field form-required">  
+			<label for="rs_hashtag">Hashtag:</label>  
+			<div>
+                        <input type="text" id="rs_hashtag" size="20" name="rs_hashtag" value="<?php echo htmlentities(get_post_meta($post->ID, 'hashtag', true)); ?>" />  
+		    	<p>Hashtag for the event (add to twapper, now, too).</p>
+			</div>                         
+		</div>
+
+		<div class="form-field form-required">  
 			<label for="rs_address">Sponsors:</label>  
 			<div>
 				<textarea id="rs_sponsors" cols="30" rows="6" name="rs_sponsors"><?php echo htmlentities(get_post_meta($post->ID,'sponsors',true)); ?></textarea>
@@ -106,6 +114,7 @@ function rs_save_metabox_events() {
 	$end = $_POST['rs_end'];
 	$time = $_POST['rs_time'];
 	$end_time = $_POST['rs_end_time'];
+        $hashtag = $_POST['rs_hashtag'];
 	$address = $_POST['rs_address'];
 	$gmap = $_POST['rs_gmap'];                   
 	$flickr = $_POST['rs_flickr'];
@@ -120,6 +129,7 @@ function rs_save_metabox_events() {
 	update_post_meta($post->ID, 'timestamp_end', strtotime($end .' '. $end_time));  
 
 	update_post_meta($post->ID, 'address', $address);
+	update_post_meta($post->ID, 'hashtag', $hashtag);
 	update_post_meta($post->ID, 'gmap', $gmap);
 	update_post_meta($post->ID, 'flickr', $flickr); 
 	update_post_meta($post->ID, 'sponsors', $sponsors); 
@@ -210,6 +220,15 @@ function rs_metabox_projects() {
 			</div>  
 		</div>
 		
+		
+		<div class="form-field form-required">  
+			<label for="rs_builders">Build Team:</label>  
+			<div>
+				<input type="text" id="rs_builders" size="80" name="rs_builders" value="<?php echo htmlspecialchars(get_post_meta($post->ID, 'builders', true)); ?>" />  
+				<p>The URL of the project.</p>
+			</div>  
+		</div>
+
 		<div class="form-field form-required">  
 			<label for="rs_url">URL:</label>  
 			<div>
@@ -290,6 +309,22 @@ function rs_metabox_projects() {
 			</div>  
 		</div>
 		
+		<div class="form-field form-required">
+			<label for="rs_winner">Winner?:</label>
+			<div>
+				<input type="text" id="rs_winner" size="20" name="rs_winner" value="<?php echo htmlspecialchars(get_post_meta($post->ID, 'winner', true)); ?>" />
+				<p>What prize this project won at the Hack day</p>
+			</div>
+		</div>
+		
+		<div class="form-field form-required">  
+			<label for="rs_spesh">Special Mention?</label>  
+			<div>
+				<input type="checkbox" id="rs_spesh" name="rs_spesh" value="1" <?php if (get_post_meta($post->ID,'spesh',true) == 1) { echo 'checked'; } ?> />
+				<p>Did this project gain a special mention?</p>
+			</div>                         
+		</div>
+		
 		<div style="clear: both;"></div>
 	</div>
 	<?php
@@ -302,16 +337,18 @@ function rs_save_metabox_projects() {
 	
    	update_post_meta($post->ID, 'event', $_POST['rs_event']);                        
 	update_post_meta($post->ID, 'url', $_POST['rs_url']);
-    update_post_meta($post->ID, 'ideas', $_POST['rs_ideas']);
-    update_post_meta($post->ID, 'costs', $_POST['rs_costs']);
-    update_post_meta($post->ID, 'data', $_POST['rs_data']); 
+        update_post_meta($post->ID, 'builders', $_POST['rs_builders'];
+        update_post_meta($post->ID, 'ideas', $_POST['rs_ideas']);
+        update_post_meta($post->ID, 'costs', $_POST['rs_costs']);
+        update_post_meta($post->ID, 'data', $_POST['rs_data']); 
 	update_post_meta($post->ID, 'twitter', $_POST['rs_twitter']); 
 	update_post_meta($post->ID, 'gh_user', $_POST['rs_gh_user']);    
 	update_post_meta($post->ID, 'gh_repo', $_POST['rs_gh_repo']);
 	update_post_meta($post->ID, 'svn', $_POST['rs_svn']); 
 	update_post_meta($post->ID, 'project_url', $_POST['rs_project_url']);
 	update_post_meta($post->ID, 'secret', $_POST['rs_secret']);
-
+        update_post_meta($post->ID, 'winner', $_POST['rs_winner'];
+        update_post_meta($post->ID, 'spesh', $_POST['rs_spesh'];
 }   
 
 add_action( 'save_post', 'rs_save_metabox_projects');
