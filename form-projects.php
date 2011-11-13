@@ -61,7 +61,7 @@ $resp = null;
 		
 		<div class="form-field">
 			<div class="wrap">
-				<label for="rs_builders">Project Builders:</label><input type="text" id="rs_builders" value="<?php echo htmlspecialchars($builders); ?>" name="rs_builders" size="60" />
+				<label for="rs_builders">Project Team/Builder:</label><input type="text" id="rs_builders" value="<?php echo htmlspecialchars($builders); ?>" name="rs_builders" size="60" />
                                 <span>Who was involved in building this project? Names/Twitter handles please</span>
 			</div>
 			<div class="end"></div>
