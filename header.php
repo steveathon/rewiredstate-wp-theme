@@ -10,8 +10,6 @@
 	<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" media="screen" />
 	
 	<!-- javascripts -->
-	
-    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;" /> 
   	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script> 
  
   	<link rel="icon" href="/favicon.ico" type="image/x-icon" /> 
