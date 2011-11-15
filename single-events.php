@@ -9,6 +9,8 @@ $address = get_post_meta($post->ID, 'address', true);
 $date = get_post_meta($post->ID, 'timestamp', true);       
 $end = get_post_meta($post->ID, 'timestamp_end', true); 
 $flickr = get_post_meta($post->ID, 'flickr', true); 
+$hashtag = get_post_meta($post->ID, 'hashtag', true);
+$lanyrd = get_post_meta($post->ID, 'lanyrd', true);
 $sponsors = get_post_meta($post->ID, 'sponsors', true);  
 ?>
 
@@ -23,6 +25,21 @@ $sponsors = get_post_meta($post->ID, 'sponsors', true);
 </div>
 <div class="event-right-col"> 
 	
+	<?php if (!empty($date)) : ?>
+	<h4>When</h4> 
+	  <p><?php echo '<span style="font-size: 15px; color: #444;"> '. date('F d, Y H:i', $date) .'</span>'; ?><?php if (!empty($end) && ( date('Dmy', $date) !== date('Dmy', $end) ) ) { echo '<br /><span style="font-size: 15px; color: #444;"> &rarr; '. date('F d, Y H:i', $end) .'</span>'; } ?></p>
+	<?php endif; ?>
+
+	<?php if (!empty($lanyrd)) : ?>
+	<h4>Lanyrd</h4>
+        <p><a href="<?php echo ($lanyrd); ?>"><?php echo '<span style="font-size: 15px; color: #444;"> '. ($lanyrd) .'</span>'; ?></a></p> 
+	<?php endif; ?>
+
+	<?php if (!empty($hashtag)) : ?>
+	<h4>Hashtag</h4> 
+        <p><a href="https://twitter.com/#!/search/<?php echo ($hashtag); ?>"><?php echo '<span style="font-size: 15px; color: #444;"> '. ($hashtag) .'</span>'; ?></a></p>
+	<?php endif; ?>
+
 	<?php if (!empty($address)) : ?>
 	<h4>Where</h4> 
 	  <address> 
@@ -36,14 +53,13 @@ $sponsors = get_post_meta($post->ID, 'sponsors', true);
 	  </div>
 	  <?php endif; ?><br />
     <?php endif; ?>
-	<?php if (!empty($date)) : ?>
-	<h4>When</h4> 
-	  <p><?php echo date('F d, Y H:i', $date); ?><?php if (!empty($end) && ( date('Dmy', $date) !== date('Dmy', $end) ) ) { echo '<br /><span style="font-size: 15px; color: #444;"> &rarr; '. date('F d, Y H:i', $end) .'</span>'; } ?></p>
-	<?php endif; ?>
+
+
 	<?php if (!empty($sponsors)) : ?>
 	<h4>Sponsors</h4> 
 	  <p><?php echo nl2br($sponsors); ?></p>
 	<?php endif; ?>       
+
 	<?php if (!empty($flickr)) : ?>
 	<h4>Photos</h4>
 		<div class="flickr_list"><?php get_flickrRSS(array(
