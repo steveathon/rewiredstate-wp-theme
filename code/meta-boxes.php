@@ -347,30 +347,18 @@ function rs_save_metabox_projects() {
 	
    	update_post_meta($post->ID, 'event', $_POST['rs_event']);                        
 	update_post_meta($post->ID, 'url', $_POST['rs_url']);
-<<<<<<< HEAD
         update_post_meta($post->ID, 'builders', $_POST['rs_builders']);
         update_post_meta($post->ID, 'ideas', $_POST['rs_ideas']);
         update_post_meta($post->ID, 'costs', $_POST['rs_costs']);
         update_post_meta($post->ID, 'data', $_POST['rs_data']); 
-=======
-	update_post_meta($post->ID, 'builders', $_POST['rs_builders']);
-    update_post_meta($post->ID, 'ideas', $_POST['rs_ideas']);
-    update_post_meta($post->ID, 'costs', $_POST['rs_costs']);
-    update_post_meta($post->ID, 'data', $_POST['rs_data']); 
->>>>>>> 9351c2d8e1063bfa7e12943c6b61a776c09455cf
 	update_post_meta($post->ID, 'twitter', $_POST['rs_twitter']); 
 	update_post_meta($post->ID, 'gh_user', $_POST['rs_gh_user']);    
 	update_post_meta($post->ID, 'gh_repo', $_POST['rs_gh_repo']);
 	update_post_meta($post->ID, 'svn', $_POST['rs_svn']); 
 	update_post_meta($post->ID, 'project_url', $_POST['rs_project_url']);
 	update_post_meta($post->ID, 'secret', $_POST['rs_secret']);
-<<<<<<< HEAD
         update_post_meta($post->ID, 'winner', $_POST['rs_winner']);
         update_post_meta($post->ID, 'spesh', $_POST['rs_spesh']);
-=======
-	update_post_meta($post->ID, 'winner', $_POST['rs_winner']);
-    update_post_meta($post->ID, 'spesh', $_POST['rs_spesh']);  
->>>>>>> 9351c2d8e1063bfa7e12943c6b61a776c09455cf
 }   
 
 add_action( 'save_post', 'rs_save_metabox_projects');
