@@ -202,6 +202,13 @@ if ($events_query->have_posts()) : foreach ($events_query->posts as $event) : ?>
 	$projects_query = new WP_Query('showposts=-1&post_type=projects&meta_key=event&meta_value='. $event->post_name);
 	
 	if ($projects_query->have_posts()) : ?>
+        <?php
+        /* global $post;
+        /* $builders = get_post_meta($post->ID, 'builders', true);
+        /* $winner = get_post_meta($post->ID, 'winner', true);
+        /* $spesh = get_post_meta($post->ID, 'spesh', true); 
+        */
+        ?>
 	
 	<h3 id="<?php echo $event->post_name; ?>"><a href="<?php echo get_permalink($event); ?>"><?php echo $event->post_title; ?></a></h3>    
 	  
@@ -213,13 +220,26 @@ if ($events_query->have_posts()) : foreach ($events_query->posts as $event) : ?>
 			<div> 
 				<div class='<?php echo $post->post_name; ?> span-2'> 
 					<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><img src='http://s3.amazonaws.com/twitter_production/profile_images/66680232/rs_bigger.png' /></a>
-				</div> 
+				</div>
+
 				<div class='span-6 last'> 
-					<h4><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h4> 
-                                        <!-- Built by: echo rs_builders() IF NOT EMPTY... -->
-					<p><?php echo rs_trim(get_the_excerpt(), 300); ?></p> 
-                                        <!-- insert WINNER / SPECIAL MENTION here if applicable -->
+				    <h4><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h4> 
+
+                                    <?php if (!empty($builders)) : ?>
+                                        <p>Developed by: <strong><?php echo ($builders); ?></strong></p>
+                                    <?php endif; ?>
+
+                                    <?php if (!empty($winner)) : ?> 
+                                        <p><strong>Winner!</strong><em><?php echo '<span style="color: #FFD700;">'. ($winner) .'</span>'; ?></em></p>
+                                    <?php endif; ?> 
+
+                                    <?php if (get_post_meta($post->ID, 'spesh', true)) : ?>
+                                        <p><span style="color: #C0C0C0; font-weight: heavy;">Judges' Special Mention</span></p>
+                                    <?php endif; ?> 
+
+				    <p><?php echo rs_trim(get_the_excerpt(), 350); ?></p> 
 				</div>   
+
 				<div class="end"></div>
 			</div> 
 		</li>   
