@@ -196,7 +196,7 @@ global $post;
     
     <h3 id="honda-hack"><a href="http://hacks.rewiredstate.org/event/power-of-minds">Power of Minds Hack</a></h3>
     
-    <p>The projects created at the <strong>Honda Power of Minds Hack</strong> can be found on <a href="http://hacks.rewiredstate.org/events/power-of-minds-hack"><strong>hacks.rewiredstate.org</strong></a>.</p>
+    <p>The projects created at the <strong>Honda Power of Minds Hack</strong> can be found on <a href="http://hacks.rewiredstate.org/events/power-of-minds"><strong>hacks.rewiredstate.org</strong></a>.</p>
     
 <?php
 // get all the events
