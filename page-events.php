@@ -29,6 +29,7 @@ Template Name: Events List
 		global $post;
 		$date = get_post_meta($post->ID, 'timestamp', true ); 
 		$end = get_post_meta($post->ID, 'timestamp_end', true ); 
+                $hashtag = get_post_meta($post->ID, 'hashtag', true );
 		?>
 		<p class="cal"><?php 
 			if (!empty($end) && (date('Dmy', $date) !== date('Dmy', $end)) && (date('my', $date) == date('my', $end)) ) {
@@ -38,9 +39,12 @@ Template Name: Events List
 			}?> <span><?php echo date('F Y', $date); ?></span></p> 
 	
 		<h4> 
-			<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a> 
+			<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                        <?php if (!empty($hashtag)) : ?>
+                            <?php echo '<span style="color: #444;">('. ($hashtag) .')</span>'; ?>
+                        <?php endif; ?>
 		</h4> 
-	
+
 		<p class="excerpt"><?php echo rs_trim(get_the_excerpt(), 260); ?></p> 
 		
 		<br class="clear" />
@@ -53,8 +57,7 @@ Template Name: Events List
 	
 <ul class="dbem_events_list"> 
   
-	<?php 
-                                   
+	<?php
 	$past_events = new WP_Query('showposts=-1&post_type=events&meta_key=timestamp&meta_compare=<=&meta_value=' . $todays_date . '&orderby=meta_value&order=DESC'); 
 
 	if ($past_events->have_posts()) : while ($past_events->have_posts()) : $past_events->the_post(); ?>
@@ -64,6 +67,7 @@ Template Name: Events List
 		global $post;
 		$date = get_post_meta($post->ID, 'timestamp', true ); 
 		$end = get_post_meta($post->ID, 'timestamp_end', true ); 
+                $hashtag = get_post_meta($post->ID, 'hashtag', true );
 		?>
 		<p class="cal"><?php 
 			if (!empty($end) && (date('Dmy', $date) !== date('Dmy', $end)) && (date('my', $date) == date('my', $end)) ) {
@@ -74,8 +78,11 @@ Template Name: Events List
 	
 		<h4> 
 			<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a> 
+                        <?php if (!empty($hashtag)) : ?>
+                            <?php echo '<span style="color: #444;">('. ($hashtag) .')</span>'; ?>
+                        <?php endif; ?>
 		</h4> 
-	
+
 		<p class="excerpt"><?php echo rs_trim(strip_tags(get_the_excerpt()), 160); ?></p>
 		<br class="clear" />
 	</li> 

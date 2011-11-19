@@ -117,16 +117,19 @@ $spesh = rs_custom('spesh');
 </div>      
 <div class="project-right-col">
 	<?php if (!empty($event)) : ?>
-        <!--
-        // here we'd want to display the winning stuff:
-        // Won $AWARD at $event vs Gained Special Mention at.. vs Created at
-        // and if winning, then change color or add a crown or badge
-        // or something 
-        -->
-		<h4>Created at</h4>
-		<p><a href="<?php echo get_permalink($event_q->post); ?>" title="<?php echo $event; ?>"><?php echo $event; ?></a></p>
+	<h4>Created at</h4>
+	<p><a href="<?php echo get_permalink($event_q->post); ?>" title="<?php echo $event; ?>"><?php echo $event; ?></a></p>
     <?php endif; ?>
-
+                
+        <?php if (!empty($winner)) : ?> 
+        <h4>Winning Entry!</h4> 
+        <h4><?php echo '<span style="color: #FFD700;">'. ($winner) .'</span>'; ?></h4>
+        <?php endif; ?> 
+    
+        <?php if (get_post_meta($post->ID, 'spesh', true)) : ?>
+        <h4><span style="color: #C0C0C0; font-weight: heavy;">Judges' Special Mention</span></h4>
+        <?php endif; ?> 
+    
 	<h4>Flickr Photos</h4>
 	<div class="flickr_list"><?php get_flickrRSS(array(
 	    'num_items' => 12, 
