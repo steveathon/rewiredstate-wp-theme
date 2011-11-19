@@ -11,10 +11,13 @@ if (!empty($_GET['action'])) {
 	
 	$action = $_GET['action'];
 	
+	if ($action == 'new') {
+	    header('Location: http://hacks.rewiredstate.org/events/power-of-minds/new');
+	    die();
+	}
+	
 	if ($action !== 'new' && $action !== 'edit') 
 		die('invalid action');
-	
-	
 	             
 	if ($action == 'edit') {
 		$project_id = $_GET['pid']; 
@@ -150,7 +153,7 @@ if (!empty($_GET['action'])) {
 		
 		if (empty($_POST['rs_save'])) {		                 
 			$title = get_the_title($project_id);
-                        $builders = get_post_meta($project_id, 'builders', true);
+            $builders = get_post_meta($project_id, 'builders', true);
 			$description = $project->post->post_content;
 			$event = get_post_meta($project_id, 'event', true);  
 			$url = get_post_meta($project_id, 'url', true);
@@ -187,9 +190,14 @@ global $post;
                                     
 <div class="project_add_button">
 	<a href="?action=new">Add your project</a>
-</div>
+</div>                                   
 
-<div class="projects_list">
+<div class="projects_list">  
+    
+    <h3 id="honda-hack"><a href="http://hacks.rewiredstate.org/event/power-of-minds">Power of Minds Hack</a></h3>
+    
+    <p>The projects created at the <strong>Honda Power of Minds Hack</strong> can be found on <a href="http://hacks.rewiredstate.org/events/power-of-minds-hack"><strong>hacks.rewiredstate.org</strong></a>.</p>
+    
 <?php
 // get all the events
 

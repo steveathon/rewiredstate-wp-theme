@@ -43,7 +43,7 @@ $resp = null;
 					$selected = '';
 					if (isset($event) && $event == $evt->post_name) {
 						$selected = 'selected';
-					}
+					}    
 				?>
 				<option value="<?php echo $evt->post_name; ?>" <?php echo $selected; ?>><?php echo $evt->post_title; ?></option>
 				<?php endforeach; endif; ?></select>
