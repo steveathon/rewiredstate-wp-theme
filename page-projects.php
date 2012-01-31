@@ -12,7 +12,7 @@ if (!empty($_GET['action'])) {
 	$action = $_GET['action'];
 	
 	if ($action == 'new') {
-	    header('Location: http://hacks.rewiredstate.org/events/power-of-minds/new');
+	    header('Location: http://hacks.rewiredstate.org/events');
 	    die();
 	}
 	
@@ -193,6 +193,14 @@ global $post;
 </div>                                   
 
 <div class="projects_list">  
+
+    <h3 id="social-tv-education"><a href="http://hacks.rewiredstate.org/events/social-tv-education">Rewired State: Social TV — Education</a></h3>
+    
+    <p>The projects created at <strong>Rewired State: Social TV — Education</strong> can be found on <a href="http://hacks.rewiredstate.org/events/social-tv-education"><strong>hacks.rewiredstate.org</strong></a>.</p>
+
+    <h3 id="lwf-2012"><a href="http://hacks.rewiredstate.org/events/lwf-2012">Learning Without Frontiers 2012</a></h3>
+    
+    <p>The projects created at <strong>Learning Without Frontiers 2012</strong> can be found on <a href="http://hacks.rewiredstate.org/events/lwf-2012"><strong>hacks.rewiredstate.org</strong></a>.</p>
     
     <h3 id="honda-hack"><a href="http://hacks.rewiredstate.org/event/power-of-minds">Power of Minds Hack</a></h3>
     
