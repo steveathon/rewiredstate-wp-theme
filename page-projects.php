@@ -193,6 +193,9 @@ global $post;
 </div>                                   
 
 <div class="projects_list">  
+    <h3 id="mipboathack"><a href="http://hacks.rewiredstate.org/events/boat-hack-at-mipcube-2012">The Boat that Hacked TV</a></h3>
+    
+    <p>The projects created at <strong>Rewired State: The Boat that Hacked TV</strong> can be found on <a href="http://hacks.rewiredstate.org/events/boat-hack-at-mipcube-2012"><strong>hacks.rewiredstate.org</strong></a>.</p>
 
     <h3 id="social-tv-education"><a href="http://hacks.rewiredstate.org/events/social-tv-education">Rewired State: Social TV — Education</a></h3>
     
